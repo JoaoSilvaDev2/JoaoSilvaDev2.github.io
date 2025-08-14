@@ -1,160 +1,728 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio | João Silva Dev</title>
-    <link rel="stylesheet" href="style.css">
+    <title>João Silva | Suporte Técnico em T.I</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #222222;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --gradient-start: #045162;
+            --gradient-end: #137285;
+            --accent: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            --accent-hover: linear-gradient(135deg, #034151 0%, #0f5f70 100%);
+            --border: #333333;
+        }
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .gradient-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(4, 81, 98, 0.1) 0%, rgba(19, 114, 133, 0.1) 100%);
+            z-index: -2;
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .particle {
+            position: absolute;
+            background-color: var(--gradient-end);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+        
+        .grid-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -3;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            border-bottom: 1px solid var(--border);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            background: var(--accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--gradient-end) 0%, transparent 70%);
+            opacity: 0.1;
+            border-radius: 50%;
+            top: -250px;
+            right: -250px;
+            z-index: -1;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--gradient-start) 0%, transparent 70%);
+            opacity: 0.1;
+            border-radius: 50%;
+            bottom: -150px;
+            left: -150px;
+            z-index: -1;
+        }
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 1rem;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+        .hero .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            border: none;
+        }
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+        .btn-secondary:hover {
+            border-color: var(--gradient-end);
+            color: var(--gradient-end);
+        }
+        /* Projects Section */
+        .projects {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .section-header p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        .project-card {
+            background: rgba(34, 34, 34, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--border);
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .project-content {
+            padding: 1.5rem;
+        }
+        .project-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        .tag {
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+        }
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+        .project-links a {
+            background: var(--accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: gap 0.3s;
+        }
+        .project-links a:hover {
+            gap: 0.5rem;
+        }
+        /* About Section */
+        .about {
+            padding: 5rem 5%;
+            background: rgba(26, 26, 26, 0.7);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
+        }
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .about-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        .skills {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        .skill {
+            background: rgba(34, 34, 34, 0.7);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--border);
+        }
+        /* Contact Section */
+        .contact {
+            padding: 5rem 5%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .contact p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            background: rgba(34, 34, 34, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 0.5rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+        .contact-link:hover {
+            background: rgba(26, 26, 26, 0.7);
+            border-color: var(--gradient-end);
+            transform: translateY(-3px);
+        }
+        .contact-link:hover i {
+            background: var(--accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        /* Footer */
+        footer {
+            padding: 2rem 5%;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            position: relative;
+            z-index: 1;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--bg-secondary);
+            z-index: 1001;
+        }
+        .scroll-progress {
+            height: 100%;
+            background: var(--accent);
+            width: 0;
+            transition: width 0.3s;
+        }
+    </style>
 </head>
 <body>
-    <!-- HERO SECTION -->
-    <header class="hero">
-        <img src="joaoo.jpeg" alt="Foto de João Silva" class="profile-img">
-        <div class="badge-open"><i class="fas fa-bolt"></i> #OpenToWork</div>
-        <h1>João Silva</h1>
-        <p class="subtitulo">SUPORTE TÉCNICO EM T.I</p>
-        <p class="frase-impacto">Transformando tecnologia em soluções para o seu dia a dia.</p>
-        <div class="social-links">
-            <a href="https://github.com/JoaoSilvaDev2" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/jo%C3%A3o-vitor-martins-57a50424b/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.instagram.com/joao.vitorh1?igsh=Y3cxbWYxaG1pcG1k" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="mailto:martins84j@gmail.com" title="E-mail"><i class="fas fa-envelope"></i></a>
-            <a href="https://wa.me/21975785969" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        </div>
-        <a href="#contato" class="btn btn-hero"><i class="fas fa-paper-plane"></i> Fale comigo</a>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-bg"></div>
+        <div class="grid-pattern"></div>
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </div>
+    
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">João Silva | Suporte Técnico em T.I</div>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#projects">Projetos</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
     </header>
-    <main>
-        <!-- SOBRE MIM -->
-        <section id="sobre" class="reveal">
-            <h2>Sobre Mim <i class="fas fa-user-astronaut"></i></h2>
-            <p><i class="fas fa-lightbulb"></i> Sou <span class="destaque-palavra">João Vitor</span> [ou João Silva], apaixonado por <span class="destaque-palavra">tecnologia</span> e <span class="destaque-palavra">inovação</span>. Meu objetivo é facilitar a vida das pessoas com soluções tecnológicas práticas e acessíveis. <i class="fas fa-heart"></i> Curioso desde criança, acredito que a tecnologia pode transformar rotinas e conectar pessoas.</p>
-            <div class="tecnologias">
-                <i class="fab fa-html5" title="HTML5"></i>
-                <i class="fab fa-css3-alt" title="CSS3"></i>
-                <i class="fab fa-js" title="JavaScript"></i>
-                <i class="fab fa-python" title="Python"></i>
-                <i class="fas fa-robot" title="Automação"></i>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content fade-in">
+            <h1>Olá, me chamo <span style="background: linear-gradient(135deg, #045162 0%, #137285 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">João Silva</span></h1>
+            <p class="subtitle">Suporte Técnico em T.I, com um único objetivo: Encontrar a solução na tecnologia para o seu problema.</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-briefcase"></i> Ver Projetos
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Entrar em Contato
+                </a>
             </div>
-        </section>
-        <!-- COMO EU TRABALHO -->
-        <section id="como-trabalho" class="reveal">
-            <h2>Como eu trabalho <i class="fas fa-people-carry"></i></h2>
-            <p>Acredito que a tecnologia deve ser simples, útil e acessível. Meu foco é entender a real necessidade do cliente, propor soluções práticas e entregar resultados que realmente fazem a diferença. Trabalho de forma colaborativa, transparente e sempre buscando inovação, usando as melhores ferramentas para cada desafio.</p>
-        </section>
-        <!-- SERVIÇOS / O QUE FAÇO -->
-        <section id="servicos" class="reveal">
-            <h2>O que faço <i class="fas fa-tools"></i></h2>
-            <div class="habilidades-grid">
-                <div class="habilidade-card reveal">
-                    <i class="fab fa-wordpress habilidade-icone"></i>
-                    <h3>Sites Institucionais</h3>
-                    <span class="selo">Especialidade</span>
-                    <p>Criação de sites práticos, bonitos e funcionais com WordPress, personalizados para o seu negócio.</p>
-                </div>
-                <div class="habilidade-card reveal">
-                    <i class="fas fa-chart-line habilidade-icone"></i>
-                    <h3>Painel BI para Clínicas</h3>
-                    <span class="selo">Informações</span>
-                    <p>Painel de Business Intelligence personalizado para clínicas, com indicadores e visual moderno.</p>
-                </div>
-                <div class="habilidade-card reveal">
-                    <i class="fas fa-robot habilidade-icone"></i>
-                    <h3>Automação de Rotinas</h3>
-                    <span class="selo">Automação</span>
-                    <p>Scripts e automações que otimizam processos e liberam seu tempo para o que realmente importa.</p>
-                </div>
-            </div>
-        </section>
-        <!-- PROJETOS EM DESTAQUE -->
-        <section id="projetos" class="reveal">
-            <h2>Projetos em Destaque <i class="fas fa-star"></i></h2>
-            <div class="projetos-grid">
-                <div class="card-projeto destaque-projeto reveal">
-                    <i class="fas fa-calendar-check icon-projeto"></i>
-                    <h3>API de Agendamento Online <span class="tag">#API</span></h3>
-                    <p>Agendamento de consultas 24h integrado à Feegow. Mais praticidade para clínicas e pacientes.</p>
-                    <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Ver mais</a>
-                    <a href="#" class="btn btn-github"><i class="fab fa-github"></i> GitHub</a>
-                </div>
-                <div class="card-projeto reveal">
-                    <i class="fas fa-qrcode icon-projeto"></i>
-                    <h3>Geração de Carnês com QR Code <span class="tag">#Automação</span></h3>
-                    <p>Geração rápida de carnês com QR Code PIX direto no boleto. Facilidade e agilidade no pagamento.</p>
-                    <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Ver mais</a>
-                </div>
-                <div class="card-projeto reveal">
-                    <i class="fas fa-user-check icon-projeto"></i>
-                    <h3>Check-In Automatizado <span class="tag">#Web</span></h3>
-                    <p>Check-in automático integrado à Feegow. Menos filas, mais tempo para cuidar dos pacientes.</p>
-                    <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Ver mais</a>
-                </div>
-            </div>
-        </section>
-        <!-- DEPOIMENTOS / RESULTADOS -->
-        <section id="depoimentos" class="reveal">
-            <h2>Resultados <i class="fas fa-trophy"></i></h2>
-            <div class="resultados-grid">
-                <div class="resultado-card reveal">
-                    <i class="fas fa-users"></i>
-                    <span class="numero">Redução de trabalho</span>
-                    <span class="descricao">+ Satisfação</span>
-                </div>
-                <div class="resultado-card reveal">
-                    <i class="fas fa-robot"></i>
-                    <span class="numero">Redução de erros</span>
-                    <span class="descricao">+ Qualidade de atendimento</span>
-                </div>
-                <div class="resultado-card reveal">
-                    <i class="fas fa-check-circle"></i>
-                    <span class="numero">100%</span>
-                    <span class="descricao">Foco em soluções práticas</span>
-                </div>
-            </div>
-        </section>
-        <!-- AUTOMAÇÃO -->
-        <section id="automacao" class="automacao-destaque reveal">
-            <h2>Automação Inteligente <i class="fas fa-microchip"></i></h2>
-            <div class="projetos-grid">
-                <div class="card-projeto reveal">
-                    <i class="fas fa-terminal icon-projeto"></i>
-                    <h3>Totem de senhas Feegow <span class="tag">#Script</span></h3>
-                    <p>Automatização do cadastro diário de senhas, sem intervenção manual dos funcionários.</p>
-                </div>
-                <div class="card-projeto reveal">
-                    <i class="fas fa-tv icon-projeto"></i>
-                    <h3>Painel de chamada por voz <span class="tag">#Automação</span></h3>
-                    <p>Painel de chamada da Feegow anuncia as senhas na TV e por voz, melhorando a experiência dos usuários.</p>
-                </div>
-            </div>
-        </section>
-        <!-- CONTATO -->
-        <section id="contato" class="reveal">
-            <h2>Contato <i class="fas fa-envelope-open-text"></i></h2>
-            <form>
-                <label for="nome"><i class="fas fa-user"></i> Nome:</label>
-                <input type="text" id="nome" name="nome" required>
-                <label for="email"><i class="fas fa-envelope"></i> Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="mensagem"><i class="fas fa-comment"></i> Mensagem:</label>
-                <textarea id="mensagem" name="mensagem" required></textarea>
-                <button type="submit"><i class="fas fa-paper-plane"></i> Enviar</button>
-            </form>
-        </section>
-    </main>
-    <a href="https://wa.me/21975785969" class="btn-whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i> Atendimento via WhatsApp
-    </a>
-    <footer>
-         <img src="logo.png.png" alt="Logo da marca" class="logo-footer" width="250" height="250">
-        <p class="frase-destaque"><em>Se o objetivo é atingido de forma eficaz, o processo é apenas um detalhe.</em></p>
-        <div class="social-links">
-            <a href="https://github.com/JoaoSilvaDev2" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/jo%C3%A3o-vitor-martins-57a50424b/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.instagram.com/joao.vitorh1?igsh=Y3cxbWYxaG1pcG1k" title="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="section-header fade-in">
+            <h2>Meus Projetos</h2>
+            <p>Conheça alguns dos meus trabalhos mais recentes</p>
+        </div>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card fade-in">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="E-commerce Platform" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Plataforma E-commerce</h3>
+                    <p class="project-description">Sistema completo de e-commerce com carrinho de compras e pagamento integrado.</p>
+                    <div class="project-tags">
+                        <span class="tag">Html</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        <a href="#"><i class="fab fa-github"></i> Código</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card fade-in">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Dashboard Analytics" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">API Feegow</h3>
+                    <p class="project-description">API de agendamento online, onde é possível encontrar e cadastrar um novo paciente e enfim realizar o agendamento de uma consulta</p>
+                    <div class="project-tags">
+                        <span class="tag">Python (Backend)</span>
+                        <span class="tag">Html</span>
+                        <span class="tag">CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        <a href="#"><i class="fab fa-github"></i> Código</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card fade-in">
+                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Mobile App" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Sistema de fila de atendimento da sala de espera</h3>
+                    <p class="project-description">Para pacientes que já realizaram check-in de atendimento, o sistema permite que o paciente veja a sua posição na fila de espera consultando através do CPF. </p>
+                    <div class="project-tags">
+                        <span class="tag">Python (backend)</span>
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        <a href="#"><i class="fab fa-github"></i> Código</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 4 -->
+            <div class="project-card fade-in">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Dashboard Analytics" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Totem de check-in Feegow</h3>
+                    <p class="project-description">Totem de check-in, integrado com API's da Feegow - Permite que o paciente que já está agendado faça seu próprio check-in, sem precisar passar pela recepção. Após o pagamento da consulta, o próprio já é encaminhado automaticamente à sala de espera.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python (Backend)</span>
+                        <span class="tag">Html</span>
+                        <span class="tag">CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        <a href="#"><i class="fab fa-github"></i> Código</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content fade-in">
+            <h2>Sobre Mim</h2>
+            <p>Sou apaixonado por técnologia e inovação. Meu objetivo é facilitar a vida das pessoas com soluções tecnológicas práticas e acessíveis.  Curioso desde criança, acredito que a tecnologia pode transformar rotinas, lugares e conectar pessoas.</p>
+            <p>Acredito que a tecnologia deve ser simples, útil e acessível. Meu foco é entender a real necessidade do cliente, propor soluções práticas e entregar resultados que realmente fazem a diferença.</p>
+            
+            <div class="skills">
+                <div class="skill">HTML</div>
+                <div class="skill">CSS</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">Python</div>
+                <div class="skill">Node.js</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Vamos Conversar</h2>
+        <p>Estou sempre aberto a novas oportunidades e colaborações. Sinta-se à vontade para entrar em contato!</p>
+        
+        <div class="contact-links">
+            <a href="mailto:joao.smartins18@gmail.com" class="contact-link">
+                <i class="fas fa-envelope"></i> joao.smartins18@gmail.com
+            </a>
+            <a href="https://www.linkedin.com/in/jo%C3%A3o-vitor-martins-57a50424b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="contact-link">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/JoaoSilvaDev2" class="contact-link">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
         <p>&copy; 2025 João Silva. Todos os direitos reservados.</p>
     </footer>
-    <script src="script.js"></script>
+    
+    <script>
+        // Create Particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size between 2px and 6px
+                const size = Math.random() * 4 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation duration between 10s and 20s
+                const duration = Math.random() * 10 + 10;
+                particle.style.animationDuration = `${duration}s`;
+                
+                // Random delay
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Initialize particles when page loads
+        window.addEventListener('load', createParticles);
+        
+        // Scroll Progress Indicator
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.scrollY / scrollHeight) * 100;
+            scrollProgress.style.width = scrolled + '%';
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Fade In Animation on Scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.project-card, .section-header, .about-content').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '100%';
+            navLinks.style.left = '0';
+            navLinks.style.right = '0';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.background = 'var(--bg-secondary)';
+            navLinks.style.padding = '1rem';
+            navLinks.style.borderTop = '1px solid var(--border)';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navLinks.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
-</html> 
+</html>
