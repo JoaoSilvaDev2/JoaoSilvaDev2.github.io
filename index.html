@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="João Silva - Especialista em Automação de Processos e Soluções Tecnológicas">
-    <title>João Silva | Especialista em Automação de Processos</title>
+    <title>João Silva | Automação & Tecnologia</title>
     
-    <!-- Preconnect para melhor performance -->
+    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -17,869 +17,297 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
     
     <style>
-        /* Variáveis CSS com a paleta de cores da logo */
+        /* VARIÁVEIS CSS - Paleta Profissional (SaaS Dark Mode) */
         :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #1a1a1a;
-            --bg-card: #222222;
-            --bg-card-hover: #2a2a2a;
-            --text-primary: #ffffff;
-            --text-secondary: #a0a0a0;
-            --text-tertiary: #808080;
-            --logo-blue: #045162; /* Azul da logo */
-            --logo-green: #137285; /* Verde da logo */
-            --logo-light-blue: #067a8f; /* Azul mais claro da logo */
-            --logo-light-green: #1a9cb0; /* Verde mais claro da logo */
-            --accent: linear-gradient(135deg, var(--logo-blue) 0%, var(--logo-green) 100%);
-            --accent-hover: linear-gradient(135deg, #034151 0%, #0f5f70 100%);
-            --border: #333333;
-            --border-hover: var(--logo-green);
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.5);
-            --transition: all 0.3s ease;
-            --border-radius: 0.75rem;
-            --section-padding: 5rem 5%;
-            --cursor-size: 20px;
-            --cursor-border-size: 2px;
+            /* Fundos */
+            --bg-body: #0f172a; /* Slate 900 - Azul escuro profundo */
+            --bg-surface: #1e293b; /* Slate 800 */
+            --bg-card: #1e293b;
+            --bg-card-hover: #334155;
+            
+            /* Texto */
+            --text-primary: #f8fafc; /* Slate 50 */
+            --text-secondary: #94a3b8; /* Slate 400 */
+            --text-muted: #64748b; /* Slate 500 */
+
+            /* Cores de Marca (Teal & Cyan) - Menos saturadas, mais elegantes */
+            --primary: #0d9488; /* Teal 600 */
+            --primary-dark: #0f766e;
+            --accent: #2dd4bf; /* Teal 400 */
+            --accent-glow: rgba(45, 212, 191, 0.15);
+
+            /* Utilitários */
+            --border: #334155;
+            --border-focus: var(--primary);
+            --radius: 12px;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --container-width: 1200px;
+            --section-spacing: 6rem;
         }
 
-        /* Reset e configurações base */
+        /* RESET & BASE */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            cursor: none; /* Desativa o cursor padrão */
+            cursor: none; /* Cursor customizado ativo */
         }
 
         html {
             scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
             font-size: 16px;
         }
 
-        /* Cursor Personalizado com Cores da Logo */
-        .cursor {
-            width: var(--cursor-size);
-            height: var(--cursor-size);
-            border: var(--cursor-border-size) solid var(--logo-green);
-            border-radius: 50%;
-            position: fixed;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: 9999;
-            transition: width 0.3s, height 0.3s, border-color 0.3s, box-shadow 0.3s;
-            box-shadow: 0 0 15px rgba(19, 114, 133, 0.7);
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .cursor-follower {
-            width: calc(var(--cursor-size) + 15px);
-            height: calc(var(--cursor-size) + 15px);
-            background: radial-gradient(circle, rgba(19, 114, 133, 0.2) 0%, transparent 70%);
-            border-radius: 50%;
-            position: fixed;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: 9998;
-            transition: width 0.3s, height 0.3s, background-color 0.3s;
-        }
-
-        .cursor-grow {
-            width: calc(var(--cursor-size) + 25px);
-            height: calc(var(--cursor-size) + 25px);
-            border-color: var(--logo-light-green);
-            box-shadow: 0 0 25px rgba(26, 156, 176, 0.8);
-        }
-
-        .cursor-follower-grow {
-            width: calc(var(--cursor-size) + 40px);
-            height: calc(var(--cursor-size) + 40px);
-            background: radial-gradient(circle, rgba(26, 156, 176, 0.3) 0%, transparent 70%);
-        }
-
-        /* Efeito de rastro do cursor */
-        .cursor-trail {
-            position: fixed;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--logo-green);
-            pointer-events: none;
-            z-index: 9997;
-            opacity: 0.7;
-        }
-
-        /* Animação de carregamento */
-        .loader {
+        /* CURSOR PERSONALIZADO (Sutil e Profissional) */
+        .cursor-dot,
+        .cursor-outline {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--bg-primary);
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent);
+        }
+
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+
+        /* Efeito hover no cursor */
+        body.hovering .cursor-outline {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(45, 212, 191, 0.1);
+            border-color: var(--accent);
+        }
+
+        /* BACKGROUND LIMPO */
+        .bg-gradient-mesh {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: 
+                radial-gradient(at 0% 0%, rgba(13, 148, 136, 0.08) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(15, 118, 110, 0.08) 0px, transparent 50%),
+                var(--bg-body);
+            /* Sutil ruído de textura para dar acabamento premium */
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(13, 148, 136, 0.08) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(15, 118, 110, 0.08) 0px, transparent 50%),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+        }
+
+        /* LOADER */
+        .loader {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-body);
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s, visibility 0.5s;
+            z-index: 10000;
+            transition: opacity 0.5s ease, visibility 0.5s;
         }
-
         .loader.hidden {
             opacity: 0;
             visibility: hidden;
         }
-
-        .loader-content {
-            text-align: center;
-        }
-
-        .loader-circle {
-            width: 60px;
-            height: 60px;
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            border-top-color: var(--logo-green);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 1rem;
-            box-shadow: 0 0 20px rgba(19, 114, 133, 0.5);
-        }
-
-        .loader-text {
-            color: var(--text-secondary);
-            font-weight: 500;
-            letter-spacing: 2px;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Botão "Voltar ao topo" */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: rgba(19, 114, 133, 0.1);
-            border: 1px solid var(--logo-green);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            cursor: none;
-            opacity: 0;
-            visibility: hidden;
-            z-index: 1000;
-            transition: var(--transition);
-            box-shadow: 0 0 20px rgba(19, 114, 133, 0.3);
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 30px rgba(19, 114, 133, 0.5);
-            background: rgba(19, 114, 133, 0.2);
-        }
-
-        /* Fundo de Automação e Tecnologia */
-        .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-        
-        /* Camada de fundo com gradiente tecnológico */
-        .tech-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #0a0a0a 0%, #0a1929 25%, #0a0a0a 50%, #0d2818 75%, #0a0a0a 100%);
-            z-index: 1;
-        }
-
-        /* Grade de automação */
-        .automation-grid {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(19, 114, 133, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(19, 114, 133, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
-            z-index: 2;
-            transform: perspective(500px) rotateX(60deg);
-            transform-origin: center center;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 200%;
-        }
-
-        /* Partículas de automação flutuantes */
-        .automation-particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 3;
-        }
-        
-        .automation-particle {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(1px);
-            animation: float-automation 25s infinite linear;
-        }
-
-        .automation-particle.type-1 {
-            background: radial-gradient(circle, var(--logo-blue) 0%, transparent 70%);
-            box-shadow: 0 0 10px var(--logo-blue);
-        }
-
-        .automation-particle.type-2 {
-            background: radial-gradient(circle, var(--logo-green) 0%, transparent 70%);
-            box-shadow: 0 0 10px var(--logo-green);
-        }
-
-        .automation-particle.type-3 {
-            background: radial-gradient(circle, var(--logo-light-blue) 0%, transparent 70%);
-            box-shadow: 0 0 10px var(--logo-light-blue);
-        }
-        
-        @keyframes float-automation {
-            0% {
-                transform: translateY(0) translateX(0) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.8;
-            }
-            90% {
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateY(-100vh) translateX(100px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        /* Engrenagens de automação (Elemento Único) */
-        .automation-gears {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 4;
-            pointer-events: none;
-        }
-
-        .gear {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(19, 114, 133, 0.05);
-            border: 2px solid rgba(19, 114, 133, 0.2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: rgba(19, 114, 133, 0.3);
-            font-size: 2rem;
-        }
-
-        .gear-1 {
-            width: 120px;
-            height: 120px;
-            top: 15%;
-            right: 10%;
-            animation: rotate-clockwise 20s linear infinite;
-        }
-
-        .gear-2 {
-            width: 80px;
-            height: 80px;
-            top: 25%;
-            right: 18%;
-            animation: rotate-counterclockwise 15s linear infinite;
-        }
-
-        .gear-3 {
-            width: 100px;
-            height: 100px;
-            bottom: 20%;
-            left: 15%;
-            animation: rotate-clockwise 25s linear infinite;
-        }
-
-        .gear-4 {
-            width: 60px;
-            height: 60px;
-            bottom: 30%;
-            left: 25%;
-            animation: rotate-counterclockwise 18s linear infinite;
-        }
-
-        @keyframes rotate-clockwise {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        @keyframes rotate-counterclockwise {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(-360deg); }
-        }
-
-        /* Fluxo de dados animado (Elemento Único) */
-        .data-flow {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 5;
-            overflow: hidden;
-        }
-
-        .data-stream {
-            position: absolute;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--logo-green), transparent);
-            transform-origin: left center;
-            animation: flow-data 8s infinite linear;
-        }
-
-        @keyframes flow-data {
-            0% { 
-                width: 0;
-                opacity: 0;
-            }
-            10% {
-                width: 100px;
-                opacity: 1;
-            }
-            90% {
-                width: 100px;
-                opacity: 1;
-            }
-            100% { 
-                width: 0;
-                opacity: 0;
-                transform: translateX(100vw);
-            }
-        }
-
-        /* Diagrama de fluxo de automação (Elemento Único) */
-        .automation-diagram {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 6;
-            opacity: 0.1;
-            pointer-events: none;
-        }
-
-        .process-node {
-            position: absolute;
+        .spinner {
             width: 40px;
             height: 40px;
+            border: 3px solid rgba(255,255,255,0.1);
+            border-top-color: var(--primary);
             border-radius: 50%;
-            background: rgba(19, 114, 133, 0.2);
-            border: 1px solid rgba(19, 114, 133, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--logo-green);
+            animation: spin 1s linear infinite;
         }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
-        .process-connection {
-            position: absolute;
-            background: rgba(19, 114, 133, 0.3);
-            height: 1px;
-            transform-origin: left center;
-        }
-
-        /* Esferas de tecnologia 3D */
-        .tech-orbs {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 7;
-        }
-
-        .tech-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(40px);
-            animation: float-orb-tech 30s infinite alternate ease-in-out;
-        }
-
-        .tech-orb-1 {
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(4, 81, 98, 0.2) 0%, transparent 70%);
-            top: -300px;
-            right: -300px;
-        }
-
-        .tech-orb-2 {
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(19, 114, 133, 0.15) 0%, transparent 70%);
-            bottom: -200px;
-            left: -200px;
-            animation-delay: 5s;
-            animation-direction: alternate-reverse;
-        }
-
-        .tech-orb-3 {
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(26, 156, 176, 0.1) 0%, transparent 70%);
-            top: 30%;
-            left: 20%;
-            animation-delay: 10s;
-        }
-
-        @keyframes float-orb-tech {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            100% { transform: translate(50px, -50px) scale(1.2) rotate(10deg); }
-        }
-
-        /* Código de automação rain effect */
-        .automation-code-rain {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 8;
-            overflow: hidden;
-        }
-
-        .code-column {
-            position: absolute;
-            top: -100%;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            line-height: 1.2;
-            color: rgba(19, 114, 133, 0.3);
-            animation: code-fall linear infinite;
-            text-shadow: 0 0 5px rgba(19, 114, 133, 0.7);
-        }
-
-        @keyframes code-fall {
-            to { transform: translateY(200vh); }
-        }
-
-        /* Efeito de ondas tecnológicas */
-        .tech-waves {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 200px;
-            z-index: 9;
-        }
-
-        .tech-wave {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 200%;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23137285' fill-opacity='0.1' d='M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,133.3C960,128,1056,96,1152,90.7C1248,85,1344,107,1392,117.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
-            background-size: 50% 100%;
-            opacity: 0.5;
-            animation: tech-wave 15s linear infinite;
-        }
-
-        .tech-wave:nth-child(2) {
-            bottom: 10px;
-            opacity: 0.3;
-            animation: tech-wave 10s linear infinite reverse;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23045162' fill-opacity='0.1' d='M0,128L48,138.7C96,149,192,171,288,165.3C384,160,480,128,576,128C672,128,768,160,864,170.7C960,181,1056,171,1152,154.7C1248,139,1344,117,1392,106.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
-        }
-
-        @keyframes tech-wave {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        
-        /* Header - melhorado */
+        /* HEADER */
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 10, 10, 0.85);
-            backdrop-filter: blur(15px);
-            z-index: 1000;
-            padding: 1rem 5%;
-            border-bottom: 1px solid rgba(19, 114, 133, 0.2);
-            transition: var(--transition);
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: padding 0.3s ease;
         }
+        header.scrolled { padding: 0.75rem 0; }
 
-        header.scrolled {
-            padding: 0.75rem 5%;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        nav {
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 1.2rem 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
         }
-        
+
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            background: var(--accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--text-primary);
+            text-decoration: none;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
+        .logo i { color: var(--primary); }
 
-        .logo i {
-            background: var(--accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .nav-links {
+        .nav-menu {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
         }
-        
-        .nav-links a {
+
+        .nav-link {
             color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
-            position: relative;
+            font-size: 0.95rem;
             transition: var(--transition);
-            padding: 0.5rem 0;
+            position: relative;
         }
 
-        .nav-links a::after {
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-primary);
+        }
+
+        .nav-link::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -4px;
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--accent);
+            background-color: var(--primary);
             transition: width 0.3s ease;
         }
         
-        .nav-links a:hover {
-            color: var(--text-primary);
-        }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+        .mobile-toggle { display: none; color: var(--text-primary); font-size: 1.5rem; }
 
-        .nav-links a.active {
-            color: var(--logo-green);
-        }
-
-        .nav-links a.active::after {
-            width: 100%;
-        }
-        
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            color: var(--text-primary);
-            z-index: 1001;
-        }
-
-        /* Hero Section - com foco em automação */
+        /* HERO SECTION */
         .hero {
+            padding: 8rem 1.5rem 4rem;
             min-height: 100vh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            padding: var(--section-padding);
+            align-items: center;
             text-align: center;
             position: relative;
-            overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, var(--logo-blue) 0%, transparent 70%);
-            opacity: 0.1;
-            border-radius: 50%;
-            top: -300px;
-            right: -300px;
-            z-index: -1;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, var(--logo-green) 0%, transparent 70%);
-            opacity: 0.1;
-            border-radius: 50%;
-            bottom: -200px;
-            left: -200px;
-            z-index: -1;
-        }
-        
-        .hero-content {
-            max-width: 900px;
-            z-index: 1;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
+        .hero-badge {
+            background: rgba(13, 148, 136, 0.1);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
             margin-bottom: 1.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-        }
-
-        .hero .highlight {
-            background: var(--accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            border: 1px solid rgba(13, 148, 136, 0.2);
             display: inline-block;
         }
-        
-        .hero .subtitle {
-            font-size: 1.25rem;
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
             color: var(--text-secondary);
+            max-width: 650px;
             margin-bottom: 2.5rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            line-height: 1.7;
         }
 
-        /* Seção de Automação Interativa (Elemento Único) */
-        .automation-showcase {
-            margin: 3rem 0;
-            padding: 2rem;
-            background: rgba(34, 34, 34, 0.5);
-            backdrop-filter: blur(10px);
-            border-radius: var(--border-radius);
-            border: 1px solid rgba(19, 114, 133, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .automation-process {
+        .cta-group {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            padding: 2rem 0;
-        }
-
-        .process-step {
-            flex: 1;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .process-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: rgba(19, 114, 133, 0.1);
-            border: 2px solid rgba(19, 114, 133, 0.3);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto 1rem;
-            font-size: 2rem;
-            color: var(--logo-green);
-            transition: var(--transition);
-        }
-
-        .process-step:hover .process-icon {
-            background: rgba(19, 114, 133, 0.2);
-            border-color: rgba(19, 114, 133, 0.5);
-            transform: scale(1.1);
-        }
-
-        .process-title {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-        }
-
-        .process-description {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .process-connector {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--logo-blue), var(--logo-green));
-            z-index: 1;
-            transform: translateY(-50%);
-        }
-
-        .process-arrow {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 30px;
-            height: 30px;
-            background: var(--bg-primary);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--logo-green);
-            z-index: 3;
-            font-size: 1rem;
-        }
-
-        /* Animação de fluxo entre processos */
-        .flow-animation {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, var(--logo-green), transparent);
-            background-size: 200% 100%;
-            z-index: 2;
-            transform: translateY(-50%);
-            animation: flow-process 3s infinite linear;
-        }
-
-        @keyframes flow-process {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 200% 50%; }
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
+            gap: 1rem;
             flex-wrap: wrap;
-            margin-top: 2rem;
+            justify-content: center;
         }
-        
+
         .btn {
-            padding: 0.85rem 2rem;
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
             font-size: 1rem;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
         }
 
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(-100%);
-            transition: transform 0.5s;
-            z-index: -1;
-        }
-
-        .btn:hover::before {
-            transform: translateX(0);
-        }
-        
         .btn-primary {
-            background: var(--accent);
+            background-color: var(--primary);
             color: white;
-            border: none;
-            box-shadow: 0 5px 15px rgba(19, 114, 133, 0.3);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(19, 114, 133, 0.4);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-primary);
-            border: 2px solid rgba(19, 114, 133, 0.3);
-        }
-        
-        .btn-secondary:hover {
-            border-color: var(--logo-green);
-            color: var(--logo-green);
-            transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(13, 148, 136, 0.3);
         }
 
-        /* Seção de Serviços - com foco em automação */
-        .services {
-            padding: var(--section-padding);
-            max-width: 1200px;
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(13, 148, 136, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--bg-surface);
+            border-color: var(--text-secondary);
+        }
+
+        /* SECTION STYLES GERAL */
+        section {
+            padding: var(--section-spacing) 1.5rem;
+            max-width: var(--container-width);
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
         }
 
         .section-header {
@@ -888,273 +316,227 @@
         }
 
         .section-header h2 {
-            font-size: 2.5rem;
+            font-size: 2.25rem;
+            font-weight: 700;
             margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--accent);
+            color: var(--text-primary);
         }
 
         .section-header p {
             color: var(--text-secondary);
             max-width: 600px;
-            margin: 1.5rem auto 0;
-            font-size: 1.1rem;
+            margin: 0 auto;
         }
 
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* CARDS (SERVIÇOS) */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .service-card {
-            background: rgba(34, 34, 34, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: var(--border-radius);
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
             padding: 2rem;
-            border: 1px solid rgba(19, 114, 133, 0.2);
             transition: var(--transition);
             height: 100%;
             display: flex;
             flex-direction: column;
-            position: relative;
-            overflow: hidden;
         }
 
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(4, 81, 98, 0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.3s;
-            z-index: -1;
-        }
-
-        .service-card:hover::before {
-            opacity: 1;
-        }
-
-        .service-card:hover {
+        .card:hover {
             transform: translateY(-5px);
-            border-color: rgba(19, 114, 133, 0.5);
-            box-shadow: 0 10px 30px rgba(19, 114, 133, 0.2);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
         }
 
-        .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            background: var(--accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .service-title {
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(13, 148, 136, 0.1);
+            color: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1.5rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
+            margin-bottom: 1.5rem;
         }
 
-        .service-description {
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .card p {
             color: var(--text-secondary);
+            font-size: 0.95rem;
             margin-bottom: 1.5rem;
             flex-grow: 1;
         }
 
-        .service-features {
+        .card-list {
             list-style: none;
+            margin-top: auto;
         }
 
-        .service-features li {
-            margin-bottom: 0.5rem;
+        .card-list li {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            color: var(--text-tertiary);
-            font-size: 0.9rem;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
         }
 
-        .service-features li i {
-            color: var(--logo-green);
-            font-size: 0.8rem;
-        }
-        
-        /* Seção de Demonstração de Automação (Elemento Único) */
-        .automation-demo {
-            padding: var(--section-padding);
-            background: rgba(26, 26, 26, 0.7);
-            backdrop-filter: blur(10px);
-            position: relative;
-            z-index: 1;
+        .card-list i { color: var(--accent); font-size: 0.8rem; }
+
+        /* PROCESSO SIMPLIFICADO */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
         }
 
-        .demo-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .demo-header {
+        .step {
             text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .demo-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
             position: relative;
-            display: inline-block;
         }
 
-        .demo-header h2::after {
-            content: '';
+        .step-number {
+            font-size: 4rem;
+            font-weight: 800;
+            color: rgba(255,255,255,0.03);
             position: absolute;
-            bottom: -10px;
+            top: -20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--accent);
+            z-index: -1;
         }
 
-        .demo-content {
+        .step h4 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .step p { font-size: 0.9rem; }
+
+        /* DEMO VISUAL */
+        .demo-container {
+            background-color: var(--bg-surface);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            overflow: hidden;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+            min-height: 500px;
         }
 
         .demo-visual {
+            background: #111;
             position: relative;
-            height: 400px;
-            background: rgba(34, 34, 34, 0.5);
-            border-radius: var(--border-radius);
-            border: 1px solid rgba(19, 114, 133, 0.2);
-            overflow: hidden;
+            padding: 2rem;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+        }
+        
+        /* Grid simples no demo */
+        .demo-grid-bg {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
         }
 
-        .workflow-diagram {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-
-        .workflow-node {
+        .node-demo {
             position: absolute;
             width: 60px;
             height: 60px;
-            border-radius: 50%;
-            background: rgba(19, 114, 133, 0.2);
-            border: 2px solid rgba(19, 114, 133, 0.5);
+            background: var(--bg-card);
+            border: 1px solid var(--primary);
+            border-radius: 12px;
             display: flex;
-            justify-content: center;
             align-items: center;
-            color: var(--logo-green);
-            font-size: 1.5rem;
+            justify-content: center;
+            color: var(--accent);
+            box-shadow: 0 0 20px rgba(13, 148, 136, 0.2);
             z-index: 2;
         }
 
-        .workflow-line {
-            position: absolute;
-            background: rgba(19, 114, 133, 0.3);
-            z-index: 1;
-        }
+        .node-1 { top: 20%; left: 20%; }
+        .node-2 { top: 20%; left: 50%; }
+        .node-3 { top: 50%; left: 50%; }
+        .node-4 { top: 50%; left: 20%; }
 
-        .workflow-line.horizontal {
+        .connection-line {
+            position: absolute;
             height: 2px;
-            width: 100px;
-        }
-
-        .workflow-line.vertical {
-            width: 2px;
-            height: 100px;
-        }
-
-        .workflow-arrow {
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-left: 8px solid transparent;
-            border-right: 8px solid transparent;
-            border-top: 12px solid var(--logo-green);
-            z-index: 3;
-        }
-
-        .workflow-label {
-            position: absolute;
-            background: rgba(34, 34, 34, 0.8);
-            color: var(--text-primary);
-            padding: 0.25rem 0.5rem;
-            border-radius: 0.25rem;
-            font-size: 0.8rem;
-            white-space: nowrap;
-            z-index: 4;
-        }
-
-        .demo-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .demo-info p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .demo-features {
-            list-style: none;
-        }
-
-        .demo-features li {
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-        }
-
-        .demo-features li i {
-            color: var(--logo-green);
-            margin-top: 0.25rem;
-        }
-
-        .demo-features li span {
-            flex: 1;
-        }
-
-        .demo-features li strong {
-            color: var(--text-primary);
-            display: block;
-            margin-bottom: 0.25rem;
-        }
-
-        /* Seção de Projetos - destacando automação */
-        .projects {
-            padding: var(--section-padding);
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
+            background: var(--text-muted);
+            transform-origin: left center;
             z-index: 1;
         }
-        
+        .conn-1 { top: 22%; left: 25%; width: 25%; }
+        .conn-2 { top: 22%; left: 55%; width: 2px; height: 30%; transform: rotate(90deg); }
+        .conn-3 { top: 52%; left: 55%; width: 25%; transform: rotate(180deg); left: auto; right: 25%; }
+
+        .demo-content {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .demo-content h3 { font-size: 1.75rem; margin-bottom: 1rem; }
+        .demo-content p { color: var(--text-secondary); margin-bottom: 2rem; }
+
+        /* STATS */
+        .stats-section {
+            background-color: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            width: 100%;
+            max-width: 100%; /* Full width */
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        /* PROJECTS */
         .filter-buttons {
             display: flex;
             justify-content: center;
@@ -1164,1797 +546,642 @@
         }
 
         .filter-btn {
-            padding: 0.5rem 1.5rem;
             background: transparent;
-            border: 1px solid rgba(19, 114, 133, 0.3);
-            border-radius: 9999px;
+            border: 1px solid var(--border);
             color: var(--text-secondary);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
             transition: var(--transition);
-            font-weight: 500;
         }
 
-        .filter-btn.active,
-        .filter-btn:hover {
-            background: var(--accent);
-            color: white;
-            border-color: transparent;
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--bg-surface);
+            border-color: var(--primary);
+            color: var(--primary);
         }
-        
+
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
         }
 
         .project-card {
-            background: rgba(34, 34, 34, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: var(--border-radius);
+            background-color: var(--bg-card);
+            border-radius: var(--radius);
             overflow: hidden;
+            border: 1px solid var(--border);
             transition: var(--transition);
-            border: 1px solid rgba(19, 114, 133, 0.2);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
         }
 
         .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(19, 114, 133, 0.3);
-            border-color: rgba(19, 114, 133, 0.5);
+            transform: translateY(-5px);
+            border-color: var(--text-muted);
         }
 
-        .project-image-container {
-            position: relative;
-            overflow: hidden;
-            height: 220px;
-        }
-
-        .project-image {
+        .project-img {
             width: 100%;
-            height: 100%;
+            height: 200px;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            border-bottom: 1px solid var(--border);
         }
 
-        .project-card:hover .project-image {
-            transform: scale(1.05);
-        }
+        .project-body { padding: 1.5rem; }
 
-        .project-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .project-card:hover .project-overlay {
-            opacity: 1;
-        }
-
-        .project-overlay a {
-            color: white;
-            font-size: 1.5rem;
-            margin: 0 1rem;
-            transition: var(--transition);
-        }
-
-        .project-overlay a:hover {
-            color: var(--logo-green);
-            transform: scale(1.2);
-        }
-        
-        .project-content {
-            padding: 1.75rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .project-title {
-            font-size: 1.35rem;
-            margin-bottom: 0.75rem;
-            font-weight: 600;
-        }
-        
-        .project-description {
-            color: var(--text-secondary);
-            margin-bottom: 1.25rem;
-            font-size: 0.95rem;
-            flex-grow: 1;
-        }
-        
         .project-tags {
             display: flex;
             gap: 0.5rem;
+            margin-bottom: 1rem;
             flex-wrap: wrap;
-            margin-bottom: 1.25rem;
-        }
-        
-        .tag {
-            background: rgba(34, 34, 34, 0.7);
-            color: var(--text-secondary);
-            padding: 0.35rem 0.85rem;
-            border-radius: 9999px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            transition: var(--transition);
-            border: 1px solid rgba(19, 114, 133, 0.1);
         }
 
-        .tag:hover {
-            background: rgba(19, 114, 133, 0.2);
-            color: white;
-            border-color: rgba(19, 114, 133, 0.5);
+        .tag {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 4px;
+            color: var(--text-secondary);
         }
-        
+
         .project-links {
             display: flex;
-            gap: 1.5rem;
-            margin-top: auto;
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
-        
-        .project-links a {
-            color: var(--logo-green);
+
+        .project-link {
+            color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
-            gap: 0.4rem;
-            transition: var(--transition);
-            font-weight: 500;
-        }
-
-        .project-links a:hover {
-            gap: 0.8rem;
-            color: var(--text-primary);
-        }
-        
-        /* Seção de Estatísticas de Automação (Elemento Único) */
-        .automation-stats {
-            padding: var(--section-padding);
-            background: rgba(26, 26, 26, 0.7);
-            backdrop-filter: blur(10px);
-            position: relative;
-            z-index: 1;
-        }
-
-        .stats-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .stats-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .stats-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .stats-header h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--accent);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .stat-card {
-            background: rgba(34, 34, 34, 0.5);
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            text-align: center;
-            border: 1px solid rgba(19, 114, 133, 0.2);
+            gap: 0.5rem;
             transition: var(--transition);
         }
 
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(19, 114, 133, 0.5);
-            box-shadow: 0 10px 20px rgba(19, 114, 133, 0.2);
-        }
+        .project-link:hover { color: var(--accent); }
 
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            background: var(--accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-label {
-            color: var(--text-secondary);
-            font-size: 1rem;
-        }
-
-        .stat-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--logo-green);
-        }
-
-        /* Animação de contagem para estatísticas */
-        .counter {
-            display: inline-block;
-        }
-
-        /* About Section - mais pessoal */
-        .about {
-            padding: var(--section-padding);
-            background: rgba(26, 26, 26, 0.7);
-            backdrop-filter: blur(10px);
-            position: relative;
-            z-index: 1;
-        }
-
-        .about-container {
-            max-width: 1000px;
-            margin: 0 auto;
+        /* ABOUT */
+        .about-wrapper {
             display: grid;
-            grid-template-columns: 1fr 2fr;
+            grid-template-columns: 1fr 1.5fr;
             gap: 4rem;
-            align-items: center;
+            align-items: start;
         }
 
-        .about-image {
-            position: relative;
-        }
-
-        .about-image img {
+        .about-img img {
             width: 100%;
-            border-radius: var(--border-radius);
-            border: 3px solid rgba(19, 114, 133, 0.3);
+            border-radius: var(--radius);
+            filter: grayscale(100%);
+            transition: var(--transition);
+            border: 1px solid var(--border);
         }
 
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            right: 20px;
-            bottom: 20px;
-            border: 2px solid var(--logo-green);
-            border-radius: var(--border-radius);
-            z-index: -1;
-        }
-        
-        .about-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
-        }
+        .about-img:hover img { filter: grayscale(0%); }
 
-        .about-content h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: var(--accent);
-        }
-        
-        .about-content p {
+        .about-text p {
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-            line-height: 1.8;
         }
 
-        .about-content p:last-of-type {
+        .skills-container { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+
+        .skill-pill {
+            padding: 0.5rem 1rem;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            color: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        .skill-pill:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* CONTACT & FORM */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
             margin-bottom: 2rem;
         }
-        
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        
-        .skill {
-            background: rgba(34, 34, 34, 0.7);
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            border: 1px solid rgba(19, 114, 133, 0.2);
-            font-weight: 500;
-            transition: var(--transition);
-        }
 
-        .skill:hover {
-            border-color: var(--logo-green);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(19, 114, 133, 0.2);
-        }
-
-        .about-cta {
-            margin-top: 2.5rem;
-        }
-
-        /* Timeline de experiência - nova seção */
-        .experience {
-            padding: var(--section-padding);
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .timeline {
-            position: relative;
-            margin-top: 3rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent, var(--logo-green), transparent);
-            margin-left: 15px;
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-left: 50px;
-            margin-bottom: 3rem;
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: 8px;
-            top: 5px;
-            width: 16px;
-            height: 16px;
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.05);
             border-radius: 50%;
-            background: var(--logo-green);
-            border: 3px solid var(--bg-primary);
-            box-shadow: 0 0 10px var(--logo-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.25rem;
         }
 
-        .timeline-date {
-            color: var(--text-tertiary);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
+        .form-group { margin-bottom: 1.5rem; }
 
-        .timeline-title {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .timeline-company {
-            color: var(--logo-green);
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-
-        .timeline-description {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-        
-        /* Contact Section - mais interativa */
-        .contact {
-            padding: var(--section-padding);
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(19, 114, 133, 0.05) 0%, transparent 70%);
-            z-index: -1;
-        }
-        
-        .contact h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .contact p {
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 1.1rem;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto 3rem;
-            background: rgba(34, 34, 34, 0.7);
-            backdrop-filter: blur(10px);
-            padding: 2.5rem;
-            border-radius: var(--border-radius);
-            border: 1px solid rgba(19, 114, 133, 0.2);
-            text-align: left;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
+        .form-label {
             display: block;
             margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--text-primary);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
         }
 
-        .form-control {
+        .form-input {
             width: 100%;
-            padding: 0.85rem 1rem;
-            background: rgba(10, 10, 10, 0.7);
-            border: 1px solid rgba(19, 114, 133, 0.2);
-            border-radius: 0.5rem;
+            padding: 0.875rem;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
             color: var(--text-primary);
             font-family: inherit;
-            font-size: 1rem;
             transition: var(--transition);
         }
 
-        .form-control:focus {
+        .form-input:focus {
             outline: none;
-            border-color: var(--logo-green);
-            box-shadow: 0 0 0 3px rgba(19, 114, 133, 0.2);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--accent-glow);
         }
 
-        textarea.form-control {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .form-submit {
-            background: var(--accent);
-            color: white;
-            border: none;
-            padding: 0.85rem 2rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            transition: var(--transition);
-            width: 100%;
-            font-size: 1rem;
-        }
-
-        .form-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(19, 114, 133, 0.3);
-        }
-
-        .form-message {
-            margin-top: 1rem;
-            padding: 0.85rem;
-            border-radius: 0.5rem;
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 4rem 1.5rem 2rem;
+            background: var(--bg-body);
             text-align: center;
-            display: none;
         }
 
-        .form-message.success {
-            background: rgba(46, 213, 115, 0.2);
-            border: 1px solid rgba(46, 213, 115, 0.5);
-            color: #2ed573;
-        }
-
-        .form-message.error {
-            background: rgba(255, 71, 87, 0.2);
-            border: 1px solid rgba(255, 71, 87, 0.5);
-            color: #ff4757;
-        }
-        
-        .contact-links {
+        .footer-socials {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            color: var(--text-primary);
-            text-decoration: none;
-            padding: 1rem 1.75rem;
-            background: rgba(34, 34, 34, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: var(--border-radius);
-            border: 1px solid rgba(19, 114, 133, 0.2);
-            transition: var(--transition);
-            font-weight: 500;
-        }
-
-        .contact-link:hover {
-            background: rgba(26, 26, 26, 0.7);
-            border-color: var(--logo-green);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(19, 114, 133, 0.2);
-        }
-
-        .contact-link:hover i {
-            background: var(--accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .contact-link i {
-            font-size: 1.2rem;
-        }
-        
-        /* Footer - mais completo */
-        footer {
-            padding: 3rem 5%;
-            text-align: center;
-            border-top: 1px solid rgba(19, 114, 133, 0.2);
-            color: var(--text-secondary);
-            position: relative;
-            z-index: 1;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
             margin-bottom: 2rem;
         }
 
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
-            position: relative;
-            display: inline-block;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
+        .social-link {
             width: 40px;
-            height: 2px;
-            background: var(--accent);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: var(--logo-green);
-            padding-left: 5px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-surface);
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
             color: var(--text-secondary);
             transition: var(--transition);
         }
 
-        .social-links a:hover {
-            background: var(--accent);
+        .social-link:hover {
+            background: var(--primary);
             color: white;
             transform: translateY(-3px);
         }
 
-        .footer-bottom {
-            padding-top: 2rem;
-            border-top: 1px solid rgba(19, 114, 133, 0.1);
-            font-size: 0.9rem;
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.875rem;
         }
-        
-        /* Responsive - melhorado */
-        @media (max-width: 992px) {
-            .about-container {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
 
-            .about-image {
-                max-width: 400px;
-                margin: 0 auto;
-            }
+        /* SCROLL PROGRESS */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--primary);
+            z-index: 1000;
+            transition: width 0.1s linear;
+        }
 
-            .demo-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
+        /* ANIMATIONS UTILS */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
 
-            .demo-visual {
-                height: 300px;
-            }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .demo-container { grid-template-columns: 1fr; }
+            .about-wrapper, .contact-wrapper { grid-template-columns: 1fr; gap: 2rem; }
+            .hero h1 { font-size: 2.5rem; }
         }
 
         @media (max-width: 768px) {
-            .nav-links {
+            .nav-menu {
                 display: none;
                 position: absolute;
                 top: 100%;
                 left: 0;
                 right: 0;
+                background: var(--bg-surface);
                 flex-direction: column;
-                background: rgba(26, 26, 26, 0.95);
-                backdrop-filter: blur(10px);
-                padding: 1.5rem;
-                border-top: 1px solid rgba(19, 114, 133, 0.2);
-                gap: 1rem;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                padding: 2rem;
+                border-bottom: 1px solid var(--border);
             }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links a {
-                padding: 0.75rem 0;
-                width: 100%;
-                text-align: center;
-            }
-
-            .nav-links a::after {
-                display: none;
-            }
+            .nav-menu.active { display: flex; }
+            .mobile-toggle { display: block; }
             
-            .mobile-menu {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .automation-process {
-                flex-direction: column;
-                gap: 2rem;
-            }
-
-            .process-connector {
-                width: 2px;
-                height: 100%;
-                left: 50%;
-                top: 0;
-                transform: translateX(-50%);
-            }
-
-            .process-arrow {
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%) rotate(90deg);
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .contact-link {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-
-            .timeline::before {
-                left: 8px;
-            }
-
-            .timeline-item {
-                padding-left: 40px;
-            }
-
-            .timeline-dot {
-                left: 0;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .section-header h2,
-            .about-content h2,
-            .contact h2,
-            .demo-header h2,
-            .stats-header h2 {
-                font-size: 2rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.1rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .services-grid,
-            .projects-grid,
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-        }
-        
-        /* Animações - melhoradas */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-
-        .fade-in-delay-1 {
-            animation-delay: 0.2s;
-        }
-
-        .fade-in-delay-2 {
-            animation-delay: 0.4s;
-        }
-
-        .fade-in-delay-3 {
-            animation-delay: 0.6s;
-        }
-        
-        /* Scroll Indicator - mais visível */
-        .scroll-indicator {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            z-index: 1001;
-        }
-        
-        .scroll-progress {
-            height: 100%;
-            background: var(--accent);
-            width: 0;
-            transition: width 0.3s;
-        }
-
-        /* Tooltip para habilidades */
-        .tooltip {
-            position: relative;
-        }
-
-        .tooltip::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            padding: 0.5rem 0.75rem;
-            border-radius: 0.5rem;
-            font-size: 0.8rem;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s;
-            border: 1px solid rgba(19, 114, 133, 0.3);
-        }
-
-        .tooltip:hover::after {
-            opacity: 1;
+            .cursor-dot, .cursor-outline { display: none; } /* Remove custom cursor on touch */
+            * { cursor: auto; }
         }
     </style>
 </head>
 <body>
-    <!-- Cursor Personalizado com Cores da Logo -->
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
+    <!-- Cursor -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
 
     <!-- Loader -->
     <div class="loader" id="loader">
-        <div class="loader-content">
-            <div class="loader-circle"></div>
-            <div class="loader-text">CARREGANDO</div>
-        </div>
+        <div class="spinner"></div>
     </div>
 
-    <!-- Botão Voltar ao Topo -->
-    <div class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </div>
-    
-    <!-- Fundo de Automação e Tecnologia -->
-    <div class="animated-bg">
-        <!-- Camada de fundo com gradiente tecnológico -->
-        <div class="tech-bg"></div>
-        
-        <!-- Grade de automação -->
-        <div class="automation-grid"></div>
-        
-        <!-- Partículas de automação flutuantes -->
-        <div class="automation-particles" id="automationParticles"></div>
-        
-        <!-- Engrenagens de automação (Elemento Único) -->
-        <div class="automation-gears">
-            <div class="gear gear-1"><i class="fas fa-cog"></i></div>
-            <div class="gear gear-2"><i class="fas fa-cog"></i></div>
-            <div class="gear gear-3"><i class="fas fa-cog"></i></div>
-            <div class="gear gear-4"><i class="fas fa-cog"></i></div>
-        </div>
-        
-        <!-- Fluxo de dados animado (Elemento Único) -->
-        <div class="data-flow" id="dataFlow"></div>
-        
-        <!-- Diagrama de fluxo de automação (Elemento Único) -->
-        <div class="automation-diagram" id="automationDiagram"></div>
-        
-        <!-- Esferas de tecnologia 3D -->
-        <div class="tech-orbs">
-            <div class="tech-orb tech-orb-1"></div>
-            <div class="tech-orb tech-orb-2"></div>
-            <div class="tech-orb tech-orb-3"></div>
-        </div>
-        
-        <!-- Código de automação rain effect -->
-        <div class="automation-code-rain" id="automationCodeRain"></div>
-        
-        <!-- Efeito de ondas tecnológicas -->
-        <div class="tech-waves">
-            <div class="tech-wave"></div>
-            <div class="tech-wave"></div>
-        </div>
-    </div>
+    <!-- Background -->
+    <div class="bg-gradient-mesh"></div>
 
-    <!-- Scroll Indicator -->
-    <div class="scroll-indicator">
-        <div class="scroll-progress" id="scrollProgress"></div>
-    </div>
-    
     <!-- Header -->
     <header id="header">
-        <nav>
-            <div class="logo">
-                <i class="fas fa-cogs"></i>
-                <span>João Silva</span>
-            </div>
-            <ul class="nav-links" id="navLinks">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-layer-group"></i> João Silva
+            </a>
+            
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link active">Início</a></li>
                 <li><a href="#services" class="nav-link">Serviços</a></li>
-                <li><a href="#automation-demo" class="nav-link">Automação</a></li>
+                <li><a href="#automation" class="nav-link">Automação</a></li>
                 <li><a href="#projects" class="nav-link">Projetos</a></li>
-                <li><a href="#stats" class="nav-link">Estatísticas</a></li>
                 <li><a href="#about" class="nav-link">Sobre</a></li>
                 <li><a href="#contact" class="nav-link">Contato</a></li>
             </ul>
-            <div class="mobile-menu" id="mobileMenu">
+
+            <div class="mobile-toggle" id="mobileToggle">
                 <i class="fas fa-bars"></i>
             </div>
-        </nav>
+        </div>
     </header>
-    
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Especialista em <span class="highlight">Automação de Processos</span></h1>
-            <p class="subtitle">Transformando tarefas repetitivas em fluxos eficientes e inteligentes através da tecnologia</p>
-            
-            <!-- Seção de Automação Interativa (Elemento Único) -->
-            <div class="automation-showcase">
-                <div class="automation-process">
-                    <div class="process-step">
-                        <div class="process-icon">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <h3 class="process-title">Análise</h3>
-                        <p class="process-description">Identifico processos que podem ser automatizados</p>
-                    </div>
-                    
-                    <div class="process-step">
-                        <div class="process-icon">
-                            <i class="fas fa-project-diagram"></i>
-                        </div>
-                        <h3 class="process-title">Design</h3>
-                        <p class="process-description">Crio o fluxo de automação ideal</p>
-                    </div>
-                    
-                    <div class="process-step">
-                        <div class="process-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3 class="process-title">Desenvolvimento</h3>
-                        <p class="process-description">Implemento a solução tecnológica</p>
-                    </div>
-                    
-                    <div class="process-step">
-                        <div class="process-icon">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <h3 class="process-title">Implantação</h3>
-                        <p class="process-description">Integro a automação ao seu ambiente</p>
-                    </div>
-                    
-                    <div class="process-connector"></div>
-                    <div class="flow-animation"></div>
-                    
-                    <div class="process-arrow">
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </div>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <span class="hero-badge fade-in-up">Disponível para Projetos</span>
+        <h1 class="fade-in-up">
+            Transformando complexidade em <br>
+            <span>Automação Inteligente</span>
+        </h1>
+        <p class="fade-in-up">
+            Especialista em criar fluxos de trabalho eficientes que economizam tempo e reduzem erros através da tecnologia.
+        </p>
+        <div class="cta-group fade-in-up">
+            <a href="#projects" class="btn btn-primary">Ver Projetos</a>
+            <a href="#contact" class="btn btn-secondary">Entrar em Contato</a>
+        </div>
+
+        <!-- Process Steps Simplificado -->
+        <div class="process-steps fade-in-up">
+            <div class="step">
+                <div class="step-number">01</div>
+                <h4>Análise</h4>
+                <p>Mapeamento de gargalos</p>
             </div>
-            
-            <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">
-                    <i class="fas fa-briefcase"></i> Ver Projetos
-                </a>
-                <a href="#contact" class="btn btn-secondary">
-                    <i class="fas fa-envelope"></i> Entrar em Contato
-                </a>
+            <div class="step">
+                <div class="step-number">02</div>
+                <h4>Design</h4>
+                <p>Arquitetura da solução</p>
+            </div>
+            <div class="step">
+                <div class="step-number">03</div>
+                <h4>Build</h4>
+                <p>Desenvolvimento & Código</p>
+            </div>
+            <div class="step">
+                <div class="step-number">04</div>
+                <h4>Deploy</h4>
+                <p>Implementação & Monitoramento</p>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="section-header fade-in">
-            <h2>Serviços de Automação</h2>
-            <p>Soluções tecnológicas personalizadas para otimizar seus processos de negócio</p>
+    <!-- Services -->
+    <section id="services">
+        <div class="section-header fade-in-up">
+            <h2>O que eu faço</h2>
+            <div class="section-divider"></div>
         </div>
         
         <div class="services-grid">
-            <div class="service-card fade-in fade-in-delay-1">
-                <div class="service-icon">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <h3 class="service-title">Automação de Tarefas Repetitivas</h3>
-                <p class="service-description">Elimino tarefas manuais e repetitivas através de scripts e robôs que executam processos de forma autônoma.</p>
-                <ul class="service-features">
-                    <li><i class="fas fa-check-circle"></i> Identificação de oportunidades</li>
-                    <li><i class="fas fa-check-circle"></i> Desenvolvimento de scripts</li>
-                    <li><i class="fas fa-check-circle"></i> Integração com sistemas existentes</li>
+            <div class="card fade-in-up">
+                <div class="card-icon"><i class="fas fa-robot"></i></div>
+                <h3>RPA & Scripts</h3>
+                <p>Automação de tarefas repetitivas utilizando Python e scripts personalizados para eliminar trabalho manual.</p>
+                <ul class="card-list">
+                    <li><i class="fas fa-check"></i> Web Scraping</li>
+                    <li><i class="fas fa-check"></i> Automação de relatórios</li>
+                    <li><i class="fas fa-check"></i> Processamento de dados</li>
                 </ul>
             </div>
-            
-            <div class="service-card fade-in fade-in-delay-2">
-                <div class="service-icon">
-                    <i class="fas fa-exchange-alt"></i>
-                </div>
-                <h3 class="service-title">Integração de Sistemas</h3>
-                <p class="service-description">Conecto diferentes sistemas e plataformas para que os dados fluam automaticamente entre eles.</p>
-                <ul class="service-features">
-                    <li><i class="fas fa-check-circle"></i> APIs</li>
-                    <li><i class="fas fa-check-circle"></i> Sincronização de dados</li>
-                    <li><i class="fas fa-check-circle"></i> Automatização de fluxos de trabalho</li>
+
+            <div class="card fade-in-up">
+                <div class="card-icon"><i class="fas fa-network-wired"></i></div>
+                <h3>Integrações API</h3>
+                <p>Conecto diferentes softwares para que seus dados fluam automaticamente entre plataformas.</p>
+                <ul class="card-list">
+                    <li><i class="fas fa-check"></i> Integração CRMs</li>
+                    <li><i class="fas fa-check"></i> Webhooks</li>
+                    <li><i class="fas fa-check"></i> Sincronização em tempo real</li>
                 </ul>
             </div>
-            
-            <div class="service-card fade-in fade-in-delay-3">
-                <div class="service-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <h3 class="service-title">Análise e Relatórios Automatizados</h3>
-                <p class="service-description">Crio sistemas que coletam, processam e apresentam dados de forma automática e inteligente.</p>
-                <ul class="service-features">
-                    <li><i class="fas fa-check-circle"></i> Coleta de dados automática</li>
-                    <li><i class="fas fa-check-circle"></i> Processamento e análise</li>
-                    <li><i class="fas fa-check-circle"></i> Dashboards e relatórios</li>
+
+            <div class="card fade-in-up">
+                <div class="card-icon"><i class="fas fa-chart-pie"></i></div>
+                <h3>Dashboards & BI</h3>
+                <p>Criação de interfaces visuais para monitoramento de métricas e tomada de decisões baseada em dados.</p>
+                <ul class="card-list">
+                    <li><i class="fas fa-check"></i> Dashboards interativos</li>
+                    <li><i class="fas fa-check"></i> KPIs automatizados</li>
+                    <li><i class="fas fa-check"></i> Relatórios dinâmicos</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- Seção de Demonstração de Automação (Elemento Único) -->
-    <section class="automation-demo" id="automation-demo">
-        <div class="demo-container">
-            <div class="demo-header fade-in">
-                <h2>Como Funciona a Automação</h2>
-                <p>Veja um exemplo prático de como transformo processos manuais em fluxos automatizados</p>
+    <!-- Automation Demo Section -->
+    <section id="automation">
+        <div class="demo-container fade-in-up">
+            <div class="demo-visual">
+                <div class="demo-grid-bg"></div>
+                <!-- Visual estático limpo representando um fluxo -->
+                <div class="node-demo node-1"><i class="fas fa-database"></i></div>
+                <div class="connection-line conn-1"></div>
+                <div class="node-demo node-2"><i class="fas fa-cogs"></i></div>
+                <div class="connection-line conn-2"></div>
+                <div class="node-demo node-3"><i class="fas fa-check-circle"></i></div>
+                <div class="connection-line conn-3"></div>
+                <div class="node-demo node-4"><i class="fas fa-file-invoice"></i></div>
             </div>
-            
             <div class="demo-content">
-                <div class="demo-visual fade-in">
-                    <div class="workflow-diagram">
-                        <!-- Etapa 1: Dados Manuais -->
-                        <div class="workflow-node" style="top: 20%; left: 10%;">
-                            <i class="fas fa-file-alt"></i>
-                        </div>
-                        <div class="workflow-label" style="top: 15%; left: 10%;">Dados Manuais</div>
-                        
-                        <!-- Linha 1 -->
-                        <div class="workflow-line horizontal" style="top: 22%; left: 15%; width: 25%;"></div>
-                        
-                        <!-- Etapa 2: Coleta Automatizada -->
-                        <div class="workflow-node" style="top: 20%; left: 40%;">
-                            <i class="fas fa-download"></i>
-                        </div>
-                        <div class="workflow-label" style="top: 15%; left: 40%;">Coleta Automatizada</div>
-                        
-                        <!-- Linha 2 -->
-                        <div class="workflow-line horizontal" style="top: 22%; left: 45%; width: 25%;"></div>
-                        
-                        <!-- Etapa 3: Processamento -->
-                        <div class="workflow-node" style="top: 20%; left: 70%;">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <div class="workflow-label" style="top: 15%; left: 70%;">Processamento</div>
-                        
-                        <!-- Linha 3 (vertical) -->
-                        <div class="workflow-line vertical" style="top: 25%; left: 72.5%; height: 25%;"></div>
-                        
-                        <!-- Etapa 4: Análise -->
-                        <div class="workflow-node" style="top: 50%; left: 70%;">
-                            <i class="fas fa-chart-pie"></i>
-                        </div>
-                        <div class="workflow-label" style="top: 45%; left: 70%;">Análise</div>
-                        
-                        <!-- Linha 4 -->
-                        <div class="workflow-line horizontal" style="top: 52%; left: 45%; width: 25%;"></div>
-                        
-                        <!-- Etapa 5: Relatório -->
-                        <div class="workflow-node" style="top: 50%; left: 40%;">
-                            <i class="fas fa-file-chart-line"></i>
-                        </div>
-                        <div class="workflow-label" style="top: 45%; left: 40%;">Relatório</div>
-                        
-                        <!-- Linha 5 -->
-                        <div class="workflow-line horizontal" style="top: 52%; left: 15%; width: 25%;"></div>
-                        
-                        <!-- Etapa 6: Ação -->
-                        <div class="workflow-node" style="top: 50%; left: 10%;">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <div class="workflow-label" style="top: 45%; left: 10%;">Ação Automática</div>
-                        
-                        <!-- Setas de fluxo -->
-                        <div class="workflow-arrow" style="top: 22%; left: 27%;"></div>
-                        <div class="workflow-arrow" style="top: 22%; left: 57%;"></div>
-                        <div class="workflow-arrow" style="top: 72%; left: 70%; transform: translate(-50%, -50%) rotate(90deg);"></div>
-                        <div class="workflow-arrow" style="top: 52%; left: 57%;"></div>
-                        <div class="workflow-arrow" style="top: 52%; left: 27%;"></div>
-                    </div>
-                </div>
+                <h3>Fluxo de Trabalho Inteligente</h3>
+                <p>Veja como transformo processos manuais confusos em pipelines automatizados e confiáveis. Da extração de dados até a entrega do resultado final, sem intervenção humana.</p>
                 
-                <div class="demo-info fade-in">
-                    <h3>Transformação de Processos Manuais em Automatizados</h3>
-                    <p>Meu trabalho consiste em identificar processos manuais ineficientes e transformá-los em fluxos automatizados que economizam tempo, reduzem erros e aumentam a produtividade.</p>
-                    
-                    <ul class="demo-features">
-                        <li>
-                            <i class="fas fa-search-plus"></i>
-                            <span>
-                                <strong>Análise de Processos</strong>
-                                Mapeio e analiso seus processos atuais para identificar oportunidades de automação
-                            </span>
-                        </li>
-                        <li>
-                            <i class="fas fa-project-diagram"></i>
-                            <span>
-                                <strong>Design de Fluxos</strong>
-                                Crio diagramas de fluxo que visualizam como a automação funcionará na prática
-                            </span>
-                        </li>
-                        <li>
-                            <i class="fas fa-code"></i>
-                            <span>
-                                <strong>Desenvolvimento de Soluções</strong>
-                                Implemento a automação utilizando as tecnologias mais adequadas para cada caso
-                            </span>
-                        </li>
-                        <li>
-                            <i class="fas fa-rocket"></i>
-                            <span>
-                                <strong>Implantação e Monitoramento</strong>
-                                Integro a automação ao seu ambiente e monitoro os resultados
-                            </span>
-                        </li>
-                    </ul>
+                <div style="margin-top: 1rem;">
+                    <div style="display: flex; gap: 1rem; margin-bottom: 1rem; align-items: center;">
+                        <i class="fas fa-check" style="color: var(--primary);"></i>
+                        <span style="color: var(--text-secondary);">Menos erro humano</span>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-bottom: 1rem; align-items: center;">
+                        <i class="fas fa-check" style="color: var(--primary);"></i>
+                        <span style="color: var(--text-secondary);">Velocidade 10x maior</span>
+                    </div>
+                    <div style="display: flex; gap: 1rem; align-items: center;">
+                        <i class="fas fa-check" style="color: var(--primary);"></i>
+                        <span style="color: var(--text-secondary);">Escalabilidade total</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Seção de Estatísticas de Automação (Elemento Único) -->
-    <section class="automation-stats" id="stats">
-        <div class="stats-container">
-            <div class="stats-header fade-in">
-                <h2>Resultados Comprovados</h2>
-                <p>Números que demonstram o impacto da automação na produtividade</p>
-            </div>
-            
+
+    <!-- Stats -->
+    <div class="stats-section" id="stats">
+        <section style="padding: 0;">
             <div class="stats-grid">
-                <div class="stat-card fade-in">
-                    <div class="stat-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="stat-number">
-                        <span class="counter" data-target="80">0</span>%
-                    </div>
-                    <div class="stat-label">Redução de tempo em tarefas repetitivas</div>
+                <div class="fade-in-up">
+                    <div class="stat-number"><span class="counter" data-target="50">0</span>+</div>
+                    <div class="stat-label">Projetos Entregues</div>
                 </div>
-                
-                <div class="stat-card fade-in fade-in-delay-1">
-                    <div class="stat-icon">
-                        <i class="fas fa-exclamation-triangle"></i>
-                    </div>
-                    <div class="stat-number">
-                        <span class="counter" data-target="95">0</span>%
-                    </div>
-                    <div class="stat-label">Diminuição de erros humanos</div>
+                <div class="fade-in-up">
+                    <div class="stat-number"><span class="counter" data-target="80">0</span>%</div>
+                    <div class="stat-label">Redução de Tempo</div>
                 </div>
-                
-                <div class="stat-card fade-in fade-in-delay-2">
-                    <div class="stat-icon">
-                        <i class="fas fa-dollar-sign"></i>
-                    </div>
-                    <div class="stat-number">
-                        <span class="counter" data-target="60">0</span>%
-                    </div>
-                    <div class="stat-label">Economia de custos operacionais</div>
-                </div>
-                
-                <div class="stat-card fade-in fade-in-delay-3">
-                    <div class="stat-icon">
-                        <i class="fas fa-smile"></i>
-                    </div>
-                    <div class="stat-number">
-                        <span class="counter" data-target="100">0</span>%
-                    </div>
-                    <div class="stat-label">Satisfação dos clientes</div>
+                <div class="fade-in-up">
+                    <div class="stat-number"><span class="counter" data-target="100">0</span>%</div>
+                    <div class="stat-label">Foco em Automação</div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <div class="section-header fade-in">
-            <h2>Projetos de Automação</h2>
-            <p>Conheça alguns dos meus trabalhos mais recentes em automação de processos</p>
+        </section>
+    </div>
+
+    <!-- Projects -->
+    <section id="projects">
+        <div class="section-header fade-in-up">
+            <h2>Projetos Recentes</h2>
+            <div class="section-divider"></div>
         </div>
 
-        <div class="filter-buttons fade-in">
+        <div class="filter-buttons fade-in-up">
             <button class="filter-btn active" data-filter="all">Todos</button>
             <button class="filter-btn" data-filter="web">Web</button>
             <button class="filter-btn" data-filter="api">API</button>
-            <button class="filter-btn" data-filter="system">Sistemas</button>
+            <button class="filter-btn" data-filter="auto">Automação</button>
         </div>
-        
+
         <div class="projects-grid">
             <!-- Project 1 -->
-            <div class="project-card fade-in" data-category="web">
-                <div class="project-image-container">
-                    <img src="imagens/Cherry01.png" alt="Plataforma E-commerce" class="project-image">
-                    <div class="project-overlay">
-                        <a href="https://cherrybombnovaiguacu.github.io" target="_blank"><i class="fas fa-external-link-alt"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Plataforma E-commerce</h3>
-                    <p class="project-description">Sistema completo de e-commerce com carrinho de compras e pagamento integrado.</p>
+            <div class="project-card fade-in-up" data-category="web">
+                <img src="imagens/Cherry01.png" alt="E-commerce" class="project-img">
+                <div class="project-body">
+                    <h3>Plataforma E-commerce</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0.5rem 0 1rem;">
+                        Sistema completo de vendas online com carrinho e checkout.
+                    </p>
                     <div class="project-tags">
                         <span class="tag">HTML</span>
                         <span class="tag">CSS</span>
-                        <span class="tag">JavaScript</span>
+                        <span class="tag">JS</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://cherrybombnovaiguacu.github.io" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> Demo
-                        </a>
-                        <a href="#" target="_blank">
-                            <i class="fab fa-github"></i> Código
-                        </a>
+                        <a href="https://cherrybombnovaiguacu.github.io" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Project 2 -->
-            <div class="project-card fade-in" data-category="api">
-                <div class="project-image-container">
-                    <img src="imagens/Agendamento01.png" alt="API Feegow" class="project-image">
-                    <div class="project-overlay">
-                        <a href="https://api.centromedicoolinda.com.br" target="_blank"><i class="fas fa-external-link-alt"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">API de Agendamento Automatizado</h3>
-                    <p class="project-description">API de agendamento online com automação de confirmações e lembretes para pacientes.</p>
+            <div class="project-card fade-in-up" data-category="api">
+                <img src="imagens/Agendamento01.png" alt="API Agendamento" class="project-img">
+                <div class="project-body">
+                    <h3>API de Agendamento</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0.5rem 0 1rem;">
+                        Sistema de agendamento automatizado com confirmações via WhatsApp.
+                    </p>
                     <div class="project-tags">
                         <span class="tag">Python</span>
                         <span class="tag">Backend</span>
-                        <span class="tag">Automação</span>
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://api.centromedicoolinda.com.br" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> Demo
-                        </a>
-                        <a href="#" target="_blank">
-                            <i class="fab fa-github"></i> Código
-                        </a>
+                        <a href="https://api.centromedicoolinda.com.br" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Project 3 -->
-            <div class="project-card fade-in" data-category="system">
-                <div class="project-image-container">
-                    <img src="imagens/posicao01.png" alt="Sistema de fila de atendimento" class="project-image">
-                    <div class="project-overlay">
-                        <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
-                        <a href="https://salaespera.onrender.com" target="_blank"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Sistema de Fila de Atendimento Automatizado</h3>
-                    <p class="project-description">Sistema que automatiza o gerenciamento de filas de espera, enviando notificações em tempo real.</p>
+            <div class="project-card fade-in-up" data-category="auto">
+                <img src="imagens/posicao01.png" alt="Fila de Atendimento" class="project-img">
+                <div class="project-body">
+                    <h3>Sistema de Fila</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0.5rem 0 1rem;">
+                        Gestão inteligente de filas de espera com notificações em tempo real.
+                    </p>
                     <div class="project-tags">
                         <span class="tag">Python</span>
-                        <span class="tag">Backend</span>
                         <span class="tag">Automação</span>
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> Demo
-                        </a>
-                        <a href="https://salaespera.onrender.com" target="_blank">
-                            <i class="fab fa-github"></i> Código
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Project 4 -->
-            <div class="project-card fade-in" data-category="system">
-                <div class="project-image-container">
-                    <img src="imagens/totem01.png" alt="Totem de check-in Feegow" class="project-image">
-                    <div class="project-overlay">
-                        <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Totem de Check-in Automatizado</h3>
-                    <p class="project-description">Totem de autoatendimento que integra com sistemas de gestão e elimina a necessidade de recepção.</p>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Backend</span>
-                        <span class="tag">Automação</span>
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> Demo
-                        </a>
-                        <a href="#" target="_blank">
-                            <i class="fab fa-github"></i> Código
-                        </a>
+                        <a href="https://salaespera.onrender.com" target="_blank" class="project-link"><i class="fab fa-github"></i> Código</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="about-container">
-            <div class="about-image fade-in">
+
+    <!-- About -->
+    <section id="about">
+        <div class="about-wrapper">
+            <div class="about-img fade-in-up">
                 <img src="imagens/joaoo.jpeg" alt="João Silva">
             </div>
-            
-            <div class="about-content fade-in">
-                <h2>Sobre Mim</h2>
-                <p>Meu nome é João Vitor, tenho 20 anos e sou apaixonado por tecnologia desde que me conheço por gente.
-                Acredito que a tecnologia é uma das maiores ferramentas de transformação da atualidade — capaz de agilizar processos, otimizar fluxos de trabalho e proporcionar experiências realmente agradáveis para quem a utiliza. Em contextos como clínicas e hospitais, por exemplo, ela pode até melhorar o ambiente e o bem-estar das pessoas em uma sala de espera.</p>
-                <p>Utilizo Inteligência Artificial como parte essencial do meu processo criativo e de desenvolvimento. Programo com o apoio de IA e tenho orgulho disso, pois acredito que o verdadeiro valor está no resultado final — em entregar soluções eficientes, inteligentes e inovadoras no menor tempo possível.</p>
-                <p>Sou movido pela curiosidade e pela vontade constante de aprender. Busco sempre aperfeiçoar minhas habilidades, explorar novas tecnologias e automatizar processos que tornem o dia a dia das pessoas e das empresas mais simples, produtivo e agradável.</p>
+            <div class="about-text fade-in-up">
+                <h2 style="margin-bottom: 1.5rem; font-size: 2rem;">Sobre Mim</h2>
+                <p>Meu nome é João Vitor, tenho 20 anos e sou movido pela curiosidade tecnológica. Acredito que a tecnologia deve servir às pessoas, simplificando o complexo.</p>
+                <p>Utilizo Inteligência Artificial como uma ferramenta poderosa no meu processo criativo, não para substituir a criatividade, mas para potencializá-la, entregando resultados de alta qualidade em menos tempo.</p>
+                <p>Meu foco está em criar soluções de automação que fazem sentido para o negócio, trazendo retorno real e mensurável.</p>
                 
-                <div class="skills">
-                    <div class="skill tooltip" data-tooltip="Diminuição em tarefas repetitivas">Automação</div>
-                    <div class="skill tooltip" data-tooltip="Linguagem de programação muito poderosa">Python</div>
-                    <div class="skill tooltip" data-tooltip="Sites e plataformas com um web desing incrível">HTML</div>
-                    <div class="skill tooltip" data-tooltip="A cereja do bolo: o que dá vida aos sites">CSS</div>
-                    <div class="skill tooltip" data-tooltip="Linguagem de programação presente em muitos sistemas hoje em dia">JavaScript</div>
-                    <div class="skill tooltip" data-tooltip="Muito usada hoje em dia, principalmente em ChatBot's">Node.js</div>
-                </div>
-
-                <div class="about-cta">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fas fa-handshake"></i> Vamos Conversar
-                    </a>
+                <div class="skills-container">
+                    <span class="skill-pill">Python</span>
+                    <span class="skill-pill">Automação</span>
+                    <span class="skill-pill">JavaScript</span>
+                    <span class="skill-pill">HTML/CSS</span>
+                    <span class="skill-pill">APIs</span>
+                    <span class="skill-pill">Node.js</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section class="experience" id="experience">
-        <div class="section-header fade-in">
-            <h2>Experiência Profissional</h2>
-            <p>Minha trajetória profissional</p>
+    <!-- Contact -->
+    <section id="contact">
+        <div class="section-header fade-in-up">
+            <h2>Vamos Conversar</h2>
+            <div class="section-divider"></div>
         </div>
 
-        <div class="timeline">
-            <div class="timeline-item fade-in">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">2024 - Presente</div>
-                <h3 class="timeline-title">Suporte Técnico em T.I</h3>
-                <div class="timeline-company">Centro Médico Olinda</div>
-                <p class="timeline-description">Desenvolvimento de soluções de automação para otimizar processos internos, integração de sistemas e criação de fluxos de trabalho inteligentes. Desenvolvimento de Chat's com I.A integrados à sistemas via API.</p>
+        <div class="contact-wrapper">
+            <div class="contact-info fade-in-up">
+                <h3>Informações de Contato</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                    Estou disponível para novos projetos e consultorias de automação. Entre em contato para discutirmos como posso ajudar.
+                </p>
+                <div>
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <div style="font-size: 0.9rem; color: var(--text-muted);">Email</div>
+                        <div>joao.smartins18@gmail.com</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+                    <div>
+                        <div style="font-size: 0.9rem; color: var(--text-muted);">LinkedIn</div>
+                        <div>joao-vitor-martins</div>
+                    </div>
+                </div>
             </div>
 
-            <div class="timeline-item fade-in">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">2023 - 2024</div>
-                <h3 class="timeline-title">Estagiário em Call Center</h3>
-                <div class="timeline-company">Centro Médico Olinda</div>
-                <p class="timeline-description">Controle e confirmação de agendamentos médicos, atendimento via WhatsApp e Telefône</p>
-            </div>
-
-            <div class="timeline-item fade-in">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">2023 - 2023</div>
-                <h3 class="timeline-title">Trabalhos Autonômos</h3>
-                <div class="timeline-company">Livre</div>
-                <p class="timeline-description">Trabalhos autônomos como atendente, vendedor, etc.</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <h2>Vamos Conversar</h2>
-        <p>Estou sempre aberto a novos projetos de automação e colaborações. Sinta-se à vontade para entrar em contato!</p>
-        
-        <form class="contact-form fade-in" id="contactForm">
-            <div class="form-group">
-                <label for="name">Nome</label>
-                <input type="text" id="name" class="form-control" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="email">E-mail</label>
-                <input type="email" id="email" class="form-control" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="subject">Assunto</label>
-                <input type="text" id="subject" class="form-control" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="message">Mensagem</label>
-                <textarea id="message" class="form-control" required></textarea>
-            </div>
-            
-            <button type="submit" class="form-submit">Enviar Mensagem</button>
-            
-            <div class="form-message" id="formMessage"></div>
-        </form>
-        
-        <div class="contact-links fade-in">
-            <a href="mailto:joao.smartins18@gmail.com" class="contact-link">
-                <i class="fas fa-envelope"></i> joao.smartins18@gmail.com
-            </a>
-            <a href="https://www.linkedin.com/in/jo%C3%A3o-vitor-martins-57a50424b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="contact-link" target="_blank">
-                <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-            <a href="https://github.com/JoaoSilvaDev2" class="contact-link" target="_blank">
-                <i class="fab fa-github"></i> GitHub
-            </a>
+            <form class="contact-form fade-in-up" id="contactForm">
+                <div class="form-group">
+                    <label class="form-label">Nome</label>
+                    <input type="text" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Mensagem</label>
+                    <textarea class="form-input" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Mensagem</button>
+            </form>
         </div>
     </section>
-    
+
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>Sobre</h3>
-                <p>Especialista em Automação de Processos com foco em soluções tecnológicas que transformam e otimizam negócios.</p>
-                <div class="social-links">
-                    <a href="https://github.com/JoaoSilvaDev2" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/jo%C3%A3o-vitor-martins-57a50424b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:joao.smartins18@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Serviços</h3>
-                <ul class="footer-links">
-                    <li><a href="#services">Automação de Processos</a></li>
-                    <li><a href="#automation-demo">Demonstração</a></li>
-                    <li><a href="#projects">Projetos</a></li>
-                    <li><a href="#stats">Resultados</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Tecnologias</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Python</a></li>
-                    <li><a href="#">Automação</a></li>
-                    <li><a href="#">HTML5</a></li>
-                    <li><a href="#">CSS3</a></li>
-                    <li><a href="#">JavaScript</a></li>
-                    <li><a href="#">APIs</a></li>
-                </ul>
-            </div>
+        <div class="footer-socials">
+            <a href="https://github.com/JoaoSilvaDev2" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/jo%C3%A3o-vitor-martins-57a50424b" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="mailto:joao.smartins18@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
         </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2025 João Silva. Todos os direitos reservados.</p>
-        </div>
+        <p class="copyright">&copy; 2025 João Silva. Todos os direitos reservados.</p>
     </footer>
-    
+
     <script>
-        // Cursor Personalizado com Cores da Logo
-        const cursor = document.querySelector('.cursor');
-        const cursorFollower = document.querySelector('.cursor-follower');
-        const cursorTrails = [];
-        const trailCount = 10;
-
-        // Criar rastros do cursor
-        for (let i = 0; i < trailCount; i++) {
-            const trail = document.createElement('div');
-            trail.classList.add('cursor-trail');
-            document.body.appendChild(trail);
-            cursorTrails.push({
-                element: trail,
-                x: 0,
-                y: 0
-            });
-        }
-
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            
-            setTimeout(() => {
-                cursorFollower.style.left = e.clientX + 'px';
-                cursorFollower.style.top = e.clientY + 'px';
-            }, 100);
-
-            // Atualizar rastros
-            cursorTrails.forEach((trail, index) => {
-                setTimeout(() => {
-                    trail.x = e.clientX;
-                    trail.y = e.clientY;
-                    trail.element.style.left = trail.x + 'px';
-                    trail.element.style.top = trail.y + 'px';
-                    
-                    // Efeito de fade out para os rastros
-                    const opacity = 1 - (index / trailCount);
-                    trail.element.style.opacity = opacity * 0.7;
-                }, index * 20);
-            });
-        });
-
-        // Efeitos do cursor em elementos interativos
-        const interactiveElements = document.querySelectorAll('a, button, .btn, .project-card, .service-card, .contact-link, .skill, .filter-btn, .stat-card');
-        
-        interactiveElements.forEach(element => {
-            element.addEventListener('mouseenter', () => {
-                cursor.classList.add('cursor-grow');
-                cursorFollower.classList.add('cursor-follower-grow');
-            });
-            
-            element.addEventListener('mouseleave', () => {
-                cursor.classList.remove('cursor-grow');
-                cursorFollower.classList.remove('cursor-follower-grow');
-            });
-        });
-
         // Loader
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.getElementById('loader').classList.add('hidden');
-            }, 800);
+            }, 500);
         });
+
+        // Custom Cursor Logic
+        const cursorDot = document.querySelector('[data-cursor-dot]');
+        const cursorOutline = document.querySelector('[data-cursor-outline]');
         
-        // Criar Partículas de Automação
-        function createAutomationParticles() {
-            const particlesContainer = document.getElementById('automationParticles');
-            const particleCount = 25;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                
-                // Adiciona tipos diferentes de partículas
-                const particleType = Math.floor(Math.random() * 3) + 1;
-                particle.classList.add('automation-particle', `type-${particleType}`);
-                
-                // Random size between 3px and 8px
-                const size = Math.random() * 5 + 3;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                
-                // Random position
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `${Math.random() * 100}%`;
-                
-                // Random animation duration between 20s and 30s
-                const duration = Math.random() * 10 + 20;
-                particle.style.animationDuration = `${duration}s`;
-                
-                // Random delay
-                particle.style.animationDelay = `${Math.random() * 5}s`;
-                
-                particlesContainer.appendChild(particle);
-            }
-        }
-        
-        // Criar Fluxo de Dados
-        function createDataFlow() {
-            const dataFlowContainer = document.getElementById('dataFlow');
-            const flowCount = 15;
-            
-            for (let i = 0; i < flowCount; i++) {
-                const flow = document.createElement('div');
-                flow.classList.add('data-stream');
-                
-                // Posição aleatória
-                const top = Math.random() * 100;
-                const left = Math.random() * 100;
-                const width = Math.random() * 200 + 100;
-                const rotation = Math.random() * 360;
-                
-                flow.style.top = `${top}%`;
-                flow.style.left = `${left}%`;
-                flow.style.width = `${width}px`;
-                flow.style.transform = `rotate(${rotation}deg)`;
-                
-                // Animação aleatória
-                const duration = Math.random() * 5 + 8;
-                flow.style.animationDuration = `${duration}s`;
-                flow.style.animationDelay = `${Math.random() * 3}s`;
-                
-                dataFlowContainer.appendChild(flow);
-            }
+        // Checagem para touch devices (desativar cursor customizado)
+        const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+        if (!isTouch) {
+            window.addEventListener("mousemove", function (e) {
+                const posX = e.clientX;
+                const posY = e.clientY;
+
+                cursorDot.style.left = `${posX}px`;
+                cursorDot.style.top = `${posY}px`;
+
+                // Efeito de delay (trailing) para o outline
+                cursorOutline.animate({
+                    left: `${posX}px`,
+                    top: `${posY}px`
+                }, { duration: 500, fill: "forwards" });
+            });
+
+            // Hover Effect
+            const interactives = document.querySelectorAll('a, button, .project-card, .card, .btn, input, textarea');
+            interactives.forEach(el => {
+                el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+                el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+            });
+        } else {
+            cursorDot.style.display = 'none';
+            cursorOutline.style.display = 'none';
+            document.body.style.cursor = 'auto';
         }
 
-        // Criar Diagrama de Automação
-        function createAutomationDiagram() {
-            const diagramContainer = document.getElementById('automationDiagram');
-            const nodeCount = 20;
-            
-            for (let i = 0; i < nodeCount; i++) {
-                const node = document.createElement('div');
-                node.classList.add('process-node');
-                
-                // Posição aleatória
-                const top = Math.random() * 80 + 10;
-                const left = Math.random() * 80 + 10;
-                const size = Math.random() * 20 + 20;
-                
-                node.style.top = `${top}%`;
-                node.style.left = `${left}%`;
-                node.style.width = `${size}px`;
-                node.style.height = `${size}px`;
-                
-                diagramContainer.appendChild(node);
-                
-                // Criar conexões
-                if (i > 0) {
-                    const connection = document.createElement('div');
-                    connection.classList.add('process-connection');
-                    
-                    // Posição e tamanho aleatórios
-                    const connectionTop = Math.random() * 100;
-                    const connectionLeft = Math.random() * 100;
-                    const connectionWidth = Math.random() * 100 + 50;
-                    const connectionRotation = Math.random() * 360;
-                    
-                    connection.style.top = `${connectionTop}%`;
-                    connection.style.left = `${connectionLeft}%`;
-                    connection.style.width = `${connectionWidth}px`;
-                    connection.style.transform = `rotate(${connectionRotation}deg)`;
-                    
-                    diagramContainer.appendChild(connection);
-                }
-            }
-        }
+        // Mobile Menu
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
 
-        // Criar Efeito de Código de Automação
-        function createAutomationCodeRain() {
-            const codeContainer = document.getElementById('automationCodeRain');
-            const columnCount = Math.floor(window.innerWidth / 20);
-            
-            for (let i = 0; i < columnCount; i++) {
-                const column = document.createElement('div');
-                column.classList.add('code-column');
-                
-                // Posição
-                column.style.left = `${i * 20}px`;
-                
-                // Conteúdo aleatório (código de automação)
-                const characters = '01ifwhileforfunctionimportreturn';
-                let text = '';
-                const height = Math.floor(Math.random() * 20 + 10);
-                
-                for (let j = 0; j < height; j++) {
-                    text += characters.charAt(Math.floor(Math.random() * characters.length)) + '<br>';
-                }
-                
-                column.innerHTML = text;
-                
-                // Duração aleatória
-                const duration = Math.random() * 10 + 10;
-                column.style.animationDuration = `${duration}s`;
-                
-                // Delay aleatório
-                column.style.animationDelay = `${Math.random() * 5}s`;
-                
-                codeContainer.appendChild(column);
-            }
-        }
-        
-        // Initialize effects when page loads
-        window.addEventListener('load', () => {
-            createAutomationParticles();
-            createDataFlow();
-            createAutomationDiagram();
-            createAutomationCodeRain();
-        });
-        
-        // Scroll Progress Indicator
-        window.addEventListener('scroll', () => {
-            const scrollProgress = document.getElementById('scrollProgress');
-            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrolled = (window.scrollY / scrollHeight) * 100;
-            scrollProgress.style.width = scrolled + '%';
-            
-            // Back to top button visibility
-            const backToTop = document.getElementById('backToTop');
-            if (window.scrollY > 300) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-
-            // Header scroll effect
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-        
-        // Back to top button
-        document.getElementById('backToTop').addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-        
-        // Fade In Animation on Scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('.project-card, .section-header, .about-content, .timeline-item, .service-card, .stat-card, .demo-visual, .demo-info').forEach(el => {
-            observer.observe(el);
-        });
-        
-        // Mobile Menu Toggle
-        const mobileMenu = document.getElementById('mobileMenu');
-        const navLinks = document.getElementById('navLinks');
-        
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            
-            // Change icon
-            const icon = mobileMenu.querySelector('i');
-            if (icon.classList.contains('fa-bars')) {
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            if(navMenu.classList.contains('active')){
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
             } else {
@@ -2962,143 +1189,139 @@
                 icon.classList.add('fa-bars');
             }
         });
-        
-        // Close mobile menu when clicking on a link
+
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                const icon = mobileMenu.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+                navMenu.classList.remove('active');
+                mobileToggle.querySelector('i').classList.remove('fa-times');
+                mobileToggle.querySelector('i').classList.add('fa-bars');
             });
         });
 
-        // Active navigation link on scroll
+        // Scroll Progress & Header
         window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
+            const scrollProgress = document.getElementById('scrollProgress');
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (scrollTop / scrollHeight) * 100;
             
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
-                }
-            });
+            scrollProgress.style.width = scrolled + '%';
+
+            const header = document.getElementById('header');
+            if(scrollTop > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
         });
 
-        // Project filtering
-        const filterButtons = document.querySelectorAll('.filter-btn');
+        // Scroll Animations (Intersection Observer)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute('data-target');
+                    const speed = 200;
+                    
+                    const updateCount = () => {
+                        const count = +counter.innerText;
+                        const inc = target / speed;
+                        if(count < target) {
+                            counter.innerText = Math.ceil(count + inc);
+                            setTimeout(updateCount, 20);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                    observer.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(c => counterObserver.observe(c));
+
+        // Project Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
         const projectCards = document.querySelectorAll('.project-card');
-        
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Update active button
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                
-                const filter = button.getAttribute('data-filter');
-                
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
                 projectCards.forEach(card => {
                     if (filter === 'all' || card.getAttribute('data-category') === filter) {
                         card.style.display = 'block';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'scale(1)';
-                        }, 10);
+                        setTimeout(() => card.style.opacity = '1', 10);
                     } else {
                         card.style.opacity = '0';
-                        card.style.transform = 'scale(0.8)';
-                        setTimeout(() => {
-                            card.style.display = 'none';
-                        }, 300);
+                        setTimeout(() => card.style.display = 'none', 300);
                     }
                 });
             });
         });
 
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        const formMessage = document.getElementById('formMessage');
-        
-        contactForm.addEventListener('submit', (e) => {
+        // Form Handling
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
             e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerText;
             
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            // Here you would normally send the form data to a server
-            // For demo purposes, we'll just show a success message
-            
-            // Show success message
-            formMessage.textContent = 'Mensagem enviada com sucesso! Entrarei em contato em breve.';
-            formMessage.className = 'form-message success';
-            formMessage.style.display = 'block';
-            
-            // Reset form
-            contactForm.reset();
-            
-            // Hide message after 5 seconds
+            btn.innerText = 'Enviando...';
+            btn.disabled = true;
+
             setTimeout(() => {
-                formMessage.style.display = 'none';
-            }, 5000);
+                btn.innerText = 'Mensagem Enviada!';
+                btn.style.backgroundColor = '#10b981'; // Success Green
+                e.target.reset();
+                
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.backgroundColor = '';
+                    btn.disabled = false;
+                }, 3000);
+            }, 1500);
         });
 
-        // Counter Animation for Stats
-        const counters = document.querySelectorAll('.counter');
-        const speed = 200;
-        
-        const countUp = (counter) => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText;
-            const increment = target / speed;
-            
-            if (count < target) {
-                counter.innerText = Math.ceil(count + increment);
-                setTimeout(() => countUp(counter), 10);
-            } else {
-                counter.innerText = target;
-            }
-        };
-        
-        // Intersection Observer for Counter Animation
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    countUp(entry.target);
-                    counterObserver.unobserve(entry.target);
+        // Active Link Highlight
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if(scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
                 }
             });
-        }, { threshold: 0.5 });
-        
-        counters.forEach(counter => {
-            counterObserver.observe(counter);
-        });
 
-        // Add some interactive animations
-        document.querySelectorAll('.btn, .contact-link, .project-links a').forEach(link => {
-            link.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-3px)';
-            });
-            
-            link.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
             });
         });
     </script>
 </body>
 </html>
-
-
